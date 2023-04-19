@@ -9,4 +9,4 @@ export const tezos = new TezosToolkit("https://ghostnet.smartpy.io")
 
 tezos.setProvider({wallet});
 
-export const contract_address = "KT1Ae7J1Hrkny7pBeUyPRU2giXhckwxBcUmW";
+export const contract_address = "KT1EQHCX8idpUhVFZFHxPYstUrdqT72YY26d";

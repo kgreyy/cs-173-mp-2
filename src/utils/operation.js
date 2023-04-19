@@ -42,6 +42,7 @@ export const claimCounterpartyOperation = async (secret) => {
     }
 };
 
+
 export const claimOwnerOperation = async () => {
     try{
         const contract = await tezos.wallet.at(contract_address);
@@ -53,7 +54,46 @@ export const claimOwnerOperation = async () => {
     }
 };
 
+export const initiateOwnerWithdrawOperation = async () => {
+    try{
+        const contract = await tezos.wallet.at(contract_address);
+        const op = await contract.methods.initiateOwnerWithdraw().send();
+        await op.confirmation(1);
+    }
+    catch(err){
+        throw err;
+    }
+};
 
-// TODO 10 - Call end_game entrypoint in the Lottery contract by completing endGameOperation
+export const initiateCounterpartyWithdrawOperation = async () => {
+    try{
+        const contract = await tezos.wallet.at(contract_address);
+        const op = await contract.methods.initiateCounterpartyWithdraw().send();
+        await op.confirmation(1);
+    }
+    catch(err){
+        throw err;
+    }
+};
 
-export const endGameOperation = async () => {};
+export const initiateAdminRefundOperation = async () => {
+    try{
+        const contract = await tezos.wallet.at(contract_address);
+        const op = await contract.methods.initiateAdminRefund().send();
+        await op.confirmation(1);
+    }
+    catch(err){
+        throw err;
+    }
+};
+
+export const finalizeAdminRefundOperation = async () => {
+    try{
+        const contract = await tezos.wallet.at(contract_address);
+        const op = await contract.methods.finalizeAdminRefund().send();
+        await op.confirmation(1);
+    }
+    catch(err){
+        throw err;
+    }
+};

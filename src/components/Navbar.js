@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { connectWallet, getAccount } from "../utils/wallet";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [account, setAccount] = useState("");
 
   useEffect(() => {
@@ -9,8 +9,9 @@ const Navbar = () => {
       // TODO 5.b - Get the active account
       const account = await getAccount();
       setAccount(account);
+      props.updateAccount(account)
     })();
-  }, []);
+  }, [props]);
 
   // TODO 4.a - Complete onConnectWallet function
   const onConnectWallet = async () => {
